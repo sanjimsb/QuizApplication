@@ -1,0 +1,62 @@
+﻿@page
+@using QuizModels
+@model QuizApplication.Pages.QuizModel
+@{
+}
+
+<section class="quiz-wrap">
+    <div class="container">
+        <div class="quiz-form__wrap">
+            <form>
+                @{
+                    if (Model.Quizes != null)
+                    {
+                        int i = 1;
+                        @foreach (Quiz item in Model.Quizes)
+                        {
+                            <div class="form-group">
+                                @{
+                                    if (item.QuestionType == "single-option")
+                                    {
+                                        <label>@i. @item.Question</label>
+                                        <div class="options">
+                                            @if (@item.Option1 != null)
+                                            {
+                                                <input type="radio" name="question-@item.Id" value="@item.Option1">
+                                                <label for="html">@item.Option1</label>
+                                            }
+                                            @if (@item.Option2 != null)
+                                            {
+                                                <input type="radio" name="question-@item.Id" value="@item.Option2">
+                                                <label for="html">@item.Option2</label>
+                                            }
+                                            @if (@item.Option3 != null)
+                                            {
+                                                <input type="radio" name="question-@item.Id" value="@item.Option3">
+                                                <label for="html">@item.Option3</label>
+                                            }
+                                            @if (@item.Option4 != null)
+                                             {
+                                                <input type="radio" name="question-@item.Id" value="@item.Option4">
+                                                <label for="html">@item.Option4</label>
+                                             }
+                                         </div>
+                                    }
+                                    else if (item.QuestionType == "blanks")
+                                    {
+                                        <label>@i. @item.Question</label>
+                                        <input name="question-@item.Id" />
+                                    }
+                                }
+                            </div>
+                            i++;
+                        }
+                    }
+                }
+                <div class="form-group">
+                    <input type="submit" value="Finish Quiz" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
