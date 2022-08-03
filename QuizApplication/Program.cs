@@ -1,7 +1,14 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Microsoft.EntityFrameworkCore;
+using QuizDbContext;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<QuizContext>(builder => {
+    builder.UseSqlite("Name=ConnectionStrings:QuizDB-sqlite", b => b.MigrationsAssembly("QuizDbMigration"));
+});
+
 
 var app = builder.Build();
 

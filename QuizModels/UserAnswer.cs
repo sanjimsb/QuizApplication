@@ -5,7 +5,8 @@ namespace QuizModels;
 public class UserAnswer
 {
     [Key]
-    public string? Id { get; set; }
+    [Required]
+    public int? Id { get; set; }
 
     [ForeignKey("Quize")]
     public string? QuizId { get; set; }

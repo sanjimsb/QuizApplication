@@ -1,0 +1,52 @@
+﻿@page
+@using QuizModels;
+@model QuizApplication.Pages.AddQuizModel
+@{
+}
+
+<section class="add-todo-wrapper">
+    <div class="container">
+        <div class="add-todo-title__wrap">
+            <h1>Add Quiz</h1>
+        </div>
+        <div class="todo-form__wrap">
+            <form method="post">
+                <div class="form-group">
+                    <input asp-for="Quizes!.Question" placeholder="Question" required />
+                </div>
+                <div class="form-group">
+                    <input asp-for="Quizes!.Option1" placeholder="Option1" required />
+                </div>
+                <div class="form-group">
+                    <input asp-for="Quizes!.Option2" placeholder="Option2" required />
+                </div>
+                <div class="form-group">
+                    <input asp-for="Quizes!.Option3" placeholder="Option3" required />
+                </div>
+                <div class="form-group">
+                    <input asp-for="Quizes!.Option4" placeholder="Option4" required />
+                </div>
+                <div class="form-group">
+                    <input asp-for="Quizes!.CorrectAnswer" placeholder="Correct Answer" required />
+                </div>
+
+                <div class="form-group">
+                    <select asp-for="Quizes!.ModuleName">
+                        @{
+                            if (Model.Modules != null)
+                            {
+                                @foreach (Module item in Model.Modules)
+                                {
+                                    <option value="@item.Id">@item.ModuleName</option>
+                                }
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Add Book" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

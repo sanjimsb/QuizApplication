@@ -5,7 +5,8 @@ namespace QuizModels;
 public class Quiz
 {
     [Key]
-    public string? Id { get; set; }
+    [Required]
+    public int? Id { get; set; }
 
     [ForeignKey("Module")]
     public string? ModuleName { get; set; }
@@ -24,4 +25,7 @@ public class Quiz
 
     [Required]
     public string? Option4 { get; set; }
+
+    [Required]
+    public string? CorrectAnswer { get; set; }
 }

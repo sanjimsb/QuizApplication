@@ -5,7 +5,8 @@ namespace QuizModels;
 public class User
 {
     [Key]
-    public string? Id { get; set; }
+    [Required]
+    public int? Id { get; set; }
 
     [Required]
     public string? FirstName { get; set; }
