@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QuizDbContext;
 
@@ -10,9 +11,10 @@ using QuizDbContext;
 namespace QuizDbMigration.Migrations
 {
     [DbContext(typeof(QuizContext))]
-    partial class QuizContextModelSnapshot : ModelSnapshot
+    [Migration("20220804002053_Migrationv8")]
+    partial class Migrationv8
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.7");
@@ -30,13 +32,15 @@ namespace QuizDbMigration.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("NegativeMarking")
+                    b.Property<bool?>("NegativeMarking")
+                        .IsRequired()
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Time")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("Timed")
+                    b.Property<bool?>("Timed")
+                        .IsRequired()
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");

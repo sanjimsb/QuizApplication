@@ -15,6 +15,17 @@
                     <input asp-for="Modules!.ModuleName" placeholder="Module Name" required />
                 </div>
                 <div class="form-group">
+                    <textarea asp-for="Modules!.Description" placeholder="Module Name" required></textarea>
+                </div>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" asp-for="Modules!.NegativeMarking">
+                    <label class="custom-control-label" for="Modules!.NegativeMarking">Enable negative marking</label>
+                </div>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" asp-for="Modules!.Timed">
+                    <label class="custom-control-label" for="Modules!.NegativeMarking">Enable negative marking</label>
+                </div>
+                <div class="form-group">
                     <input type="submit" value="Add Quiz Module" class="btn btn-primary" />
                 </div>
             </form>

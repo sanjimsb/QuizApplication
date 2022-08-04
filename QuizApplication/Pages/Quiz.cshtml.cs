@@ -14,8 +14,12 @@ namespace QuizApplication.Pages
 
         public readonly QuizContext _db;
 
+        public int marks { get; set; }
+
 
         public IList<Quiz>? Quizes { get; set; }
+
+        public IList<Module> ModuleDetail { get; set; }
 
         private readonly ILogger<QuizModel> _logger;
 
@@ -36,6 +40,23 @@ namespace QuizApplication.Pages
             Console.WriteLine(Id);
             //db.Items.Where(x => x.userid == user_ID).Select(x => x.Id).Distinct();
             Quizes = _db.Quiz!.Where(q => q.ModuleId == Id).ToList();
+            ModuleDetail = _db.Module!.Where(m => m.Id == Id).ToList();
+        }
+
+        public void OnPost([FromQuery] int Id)
+        {
+            Quizes = _db.Quiz!.Where(q => q.ModuleId == Id).ToList();
+            if (Quizes != null)
+            {
+                foreach (Quiz item in Quizes)
+                {
+                    if (Request.Form[$"question-{item.Id}"].ToString() == item.CorrectAnswer!.ToString())
+                    {
+                        marks += 1;
+                    }
+                }
+            }
+            Console.WriteLine(marks);
         }
     }
 }

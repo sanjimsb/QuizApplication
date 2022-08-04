@@ -8,7 +8,7 @@ public class UserAnswer
     [Required]
     public int? Id { get; set; }
 
-    [ForeignKey("Quize")]
+    [ForeignKey("Quiz")]
     public string? QuizId { get; set; }
 
     [ForeignKey("User")]

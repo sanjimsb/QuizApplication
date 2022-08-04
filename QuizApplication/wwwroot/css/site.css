@@ -16,3 +16,33 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.quiz-wrap {
+    padding: 2rem 3.5rem;
+}
+
+.quiz-wrap .quiz-form__wrap .form-group {
+margin-bottom: 2.5rem;
+}
+
+.quiz-wrap .quiz-form__wrap .form-group label {
+font-size: 1.8rem;
+}
+
+.quiz-wrap .quiz-form__wrap .form-group .options {
+display: flex;
+}
+
+.quiz-wrap .quiz-form__wrap .form-group .options label {
+font-size: 1.5rem;
+padding-right: 1.5rem;
+}
+
+.quiz-wrap .quiz-stats {
+    box-shadow: 0 1.5rem 2.65rem rgba(0,0,0,0.12);
+    padding: 1.875rem;
+    background-color: #f6f6f6;
+    height: 100%;
+    transition: all .3s;
+    max-height: 400px;
+}
