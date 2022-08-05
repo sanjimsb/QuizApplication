@@ -8,18 +8,24 @@
 <section class="module-wrap">
     <div class="container">
         <div class="module-wrap__inner">
-            @{
-                if (Model.Modules != null)
-                {
-                    @foreach (Module item in Model.Modules)
+            <div class="title-wrap">
+                <h1>Test Modules</h1>
+            </div>
+            <div class="row">
+                @{
+                    if (Model.Modules != null)
                     {
-                        <div class="module-item">
-                            <a asp-page="Quiz" asp-route-Id="@item.Id">@item.ModuleName</a>
-                        </div>
+                        @foreach (Module item in Model.Modules)
+                        {
+                            <div class="col-md-4">
+                                <div class="module-item">
+                                    <a asp-page="Quiz" asp-route-Id="@item.Id">@item.ModuleName</a>
+                                </div>
+                            </div>
+                        }
                     }
                 }
-            }
-            
+            </div>
         </div>
     </div>
 </section>
