@@ -73,3 +73,22 @@ body {
     text-decoration: none;
     color: #737373;
 }
+
+form .form-group{
+    padding-bottom: 1.8rem;
+    max-width: 400px;
+}
+form .custom-control {
+    padding-bottom: 1.8rem;
+}
+
+form .form-group input,
+form .form-group select {
+    width: 100%;
+    min-height: 50px;
+}
+
+form .form-group textarea {
+    width: 100%;
+    min-height: 150px;
+}

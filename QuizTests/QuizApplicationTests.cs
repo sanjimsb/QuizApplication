@@ -29,10 +29,10 @@ public class QuizApplicationTests
         Assert.IsNotNull(info);
     }
 
-    [TestMethod]
-    public void QuizListMethodReturnsListOfQuiz()
-    {
-        IList<Quiz> quizes = QuizList.GetAllQuiz();
-        Assert.IsNotNull(quizes);
-    }
+    //[TestMethod]
+    //public void QuizListMethodReturnsListOfQuiz()
+    //{
+    //    IList<Quiz> quizes = QuizList.GetAllQuiz();
+    //    Assert.IsNotNull(quizes);
+    //}
 }
