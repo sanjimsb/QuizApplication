@@ -9,7 +9,7 @@ public class UserAnswer
     public int? Id { get; set; }
 
     [ForeignKey("Quiz")]
-    public string? QuizId { get; set; }
+    public int? QuizId { get; set; }
 
     [ForeignKey("User")]
     public string? UserId { get; set; }
