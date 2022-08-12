@@ -16,6 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\QuizModels\QuizModels.csproj" />
+    <ProjectReference Include="..\QuizDbContext\QuizDbContext.csproj" />
     <ProjectReference Include="..\QuizMethods\QuizMethods.csproj" />
   </ItemGroup>
 </Project>

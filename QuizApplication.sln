@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizDbMigration", "QuizDbMi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizApi", "QuizApi\QuizApi.csproj", "{A4633472-BD30-46B7-A152-C759BFC0891D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizTests", "QuizTests\QuizTests.csproj", "{F8FBDE62-0B09-4491-B182-FE6749287C3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizMethods", "QuizMethods\QuizMethods.csproj", "{89ACE370-8F7D-4898-A1AA-C61887D16B8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{A4633472-BD30-46B7-A152-C759BFC0891D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4633472-BD30-46B7-A152-C759BFC0891D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4633472-BD30-46B7-A152-C759BFC0891D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8FBDE62-0B09-4491-B182-FE6749287C3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8FBDE62-0B09-4491-B182-FE6749287C3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8FBDE62-0B09-4491-B182-FE6749287C3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8FBDE62-0B09-4491-B182-FE6749287C3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89ACE370-8F7D-4898-A1AA-C61887D16B8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89ACE370-8F7D-4898-A1AA-C61887D16B8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89ACE370-8F7D-4898-A1AA-C61887D16B8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89ACE370-8F7D-4898-A1AA-C61887D16B8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
