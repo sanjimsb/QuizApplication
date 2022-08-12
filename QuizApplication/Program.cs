@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using QuizApplication.Data;
 using QuizDbContext;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +11,8 @@ builder.Services.AddDbContext<QuizContext>(builder => {
     builder.UseSqlite("Name=ConnectionStrings:QuizDB-sqlite", b => b.MigrationsAssembly("QuizDbMigration"));
 });
 
-
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<QuizContext>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -25,6 +28,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();

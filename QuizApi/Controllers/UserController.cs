@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QuizDbContext;
@@ -26,18 +27,18 @@ public class UserController : ControllerBase
 
     // GET: api/users
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+    public async Task<ActionResult<IEnumerable<IdentityUser>>> GetUsers()
     {
-        var users = await _context.User.ToListAsync();
+        var users = await _context.Users.ToListAsync();
 
         return users;
     }
 
     // GET: api/users/5
     [HttpGet("{id}")]
-    public async Task<ActionResult<User>> GetUser(int id)
+    public async Task<ActionResult<IdentityUser>> GetUser(string id)
     {
-        var user = await _context.User.FindAsync(id);
+        var user = await _context.Users.FindAsync(id);
 
         if (user == null)
         {
@@ -50,7 +51,7 @@ public class UserController : ControllerBase
     // PUT: api/users/5
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutUser(int id, User user)
+    public async Task<IActionResult> PutUser(string id, User user)
     {
         if (id != user.Id)
         {
@@ -81,7 +82,7 @@ public class UserController : ControllerBase
     // POST: api/users
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPost]
-    public async Task<ActionResult<User>> PostUser(User user)
+    public async Task<ActionResult<IdentityUser>> PostUser(User user)
     {
         _context.User.Add(user);
         await _context.SaveChangesAsync();
@@ -93,20 +94,20 @@ public class UserController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteUser(int id)
     {
-        var user = await _context.User.FindAsync(id);
+        var user = await _context.Users.FindAsync(id);
         if (user == null)
         {
             return NotFound();
         }
 
-        _context.User.Remove(user);
+        _context.Users.Remove(user);
         await _context.SaveChangesAsync();
 
         return NoContent();
     }
 
-    private bool CheckUserExists(int id)
+    private bool CheckUserExists(string id)
     {
-        return _context.User.Any(u => u.Id == id);
+        return _context.Users.Any(u => u.Id == id);
     }
 }

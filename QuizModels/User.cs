@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
 
 namespace QuizModels;
-public class User
+
+public class User : IdentityUser
 {
-    [Key]
-    [Required]
-    public int? Id { get; set; }
+
 
     [Required]
     public string? FirstName { get; set; }
@@ -14,11 +14,5 @@ public class User
     [Required]
     public string? LastName { get; set; }
 
-    [Required]
-    public string? Email { get; set; }
-
-    [Required]
-    [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
-    public string? Password { get; set; }
 
 }

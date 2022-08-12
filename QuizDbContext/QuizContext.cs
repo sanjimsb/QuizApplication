@@ -1,8 +1,9 @@
 ﻿namespace QuizDbContext;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using QuizModels;
 
-public class QuizContext : DbContext
+public class QuizContext : IdentityDbContext
 {
     public QuizContext(DbContextOptions<QuizContext> options)
         : base(options)
@@ -16,5 +17,6 @@ public class QuizContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
     }
 }
