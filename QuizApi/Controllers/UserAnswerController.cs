@@ -21,6 +21,11 @@ public class UserAnswerController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<UserAnswer>>> GetAnswers()
     {
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
+
         var userAnswers = await _context.UserAnswer.ToListAsync();
 
         return userAnswers;
@@ -30,6 +35,11 @@ public class UserAnswerController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<UserAnswer>> GetAnswer(int id)
     {
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
+
         var userAnswer = await _context.UserAnswer.FindAsync(id);
 
         if (userAnswer == null)
@@ -45,6 +55,11 @@ public class UserAnswerController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> PutAnswer(int id, UserAnswer userAnswers)
     {
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
+
         if (id != userAnswers.Id)
         {
             return BadRequest();
@@ -76,6 +91,11 @@ public class UserAnswerController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<UserAnswer>> PostAnswer(UserAnswer userAnswers)
     {
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
+
         _context.UserAnswer.Add(userAnswers);
         await _context.SaveChangesAsync();
 
@@ -86,6 +106,11 @@ public class UserAnswerController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteAnswer(int id)
     {
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
+
         var userAnswers = await _context.UserAnswer.FindAsync(id);
         if (userAnswers == null)
         {

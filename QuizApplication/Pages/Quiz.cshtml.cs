@@ -45,18 +45,18 @@ namespace QuizApplication.Pages
 
         public void OnPost([FromQuery] int Id)
         {
-            Quizes = _db.Quiz!.Where(q => q.ModuleId == Id).ToList();
-            if (Quizes != null)
-            {
-                foreach (Quiz item in Quizes)
+                Quizes = _db.Quiz!.Where(q => q.ModuleId == Id).ToList();
+                if (Quizes != null)
                 {
-                    if (Request.Form[$"question-{item.Id}"].ToString() == item.CorrectAnswer!.ToString())
+                    foreach (Quiz item in Quizes)
                     {
-                        marks += 1;
+                        if (Request.Form[$"question-{item.Id}"].ToString() == item.CorrectAnswer!.ToString())
+                        {
+                            marks += 1;
+                        }
                     }
                 }
-            }
-            Console.WriteLine(marks);
+                Console.WriteLine(marks);
         }
     }
 }

@@ -35,9 +35,9 @@ namespace QuizApplication.Pages
 
         public void OnPost()
         {
-            Modules = _db.Module!.Select(m => m).ToList();
-            _db.Add<Quiz>(Quizes!);
-            _db.SaveChangesAsync();
+                Modules = _db.Module!.Select(m => m).ToList();
+                _db.Add<Quiz>(Quizes!);
+                _db.SaveChangesAsync();
         }
     }
 }

@@ -21,6 +21,10 @@ public class ModuleController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Module>>> GetModules()
     {
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
         var modules = await _context.Module.ToListAsync();
 
         return modules;
@@ -30,6 +34,11 @@ public class ModuleController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<Module>> GetModule(int id)
     {
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
+
         var module = await _context.Module.FindAsync(id);
 
         if (module == null)
@@ -45,6 +54,11 @@ public class ModuleController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> PutJob(int id, Module module)
     {
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
+
         if (id != module.Id)
         {
             return BadRequest();
@@ -76,6 +90,10 @@ public class ModuleController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Module>> PostModule(Module module)
     {
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
         _context.Module.Add(module);
         await _context.SaveChangesAsync();
 
@@ -86,6 +104,10 @@ public class ModuleController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteModule (int id)
     {
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
         var module = await _context.Module.FindAsync(id);
         if (module == null) {
             return NotFound();

@@ -32,8 +32,10 @@ namespace QuizApplication.Pages
 
         public void OnPost()
         {
-            _db.Add(Modules!);
-            _db.SaveChangesAsync();
+            
+                _db.Add(Modules!);
+                _db.SaveChangesAsync();
+            
         }
     }
 }

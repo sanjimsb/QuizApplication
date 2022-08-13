@@ -21,6 +21,10 @@ public class QuizController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Quiz>>> GetQuizes()
     {
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
         var quizes = await _context.Quiz.ToListAsync();
 
         return quizes;
@@ -30,6 +34,11 @@ public class QuizController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<Quiz>> GetQuiz(int id)
     {
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
+
         var quiz = await _context.Quiz.FindAsync(id);
 
         if (quiz == null)
@@ -45,6 +54,11 @@ public class QuizController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> PutQuiz(int id, Quiz quiz)
     {
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
+
         if (id != quiz.Id)
         {
             return BadRequest();
@@ -76,6 +90,11 @@ public class QuizController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Quiz>> PostQuiz(Quiz quiz)
     {
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
+
         _context.Quiz.Add(quiz);
         await _context.SaveChangesAsync();
 
@@ -86,6 +105,11 @@ public class QuizController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteQuiz (int id)
     {
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
+
         var quiz = await _context.Quiz.FindAsync(id);
         if (quiz == null) {
             return NotFound();

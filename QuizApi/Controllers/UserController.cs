@@ -29,6 +29,11 @@ public class UserController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<IdentityUser>>> GetUsers()
     {
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
+
         var users = await _context.Users.ToListAsync();
 
         return users;
@@ -38,6 +43,11 @@ public class UserController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<IdentityUser>> GetUser(string id)
     {
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
+
         var user = await _context.Users.FindAsync(id);
 
         if (user == null)
@@ -53,6 +63,11 @@ public class UserController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> PutUser(string id, User user)
     {
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
+
         if (id != user.Id)
         {
             return BadRequest();
@@ -84,6 +99,11 @@ public class UserController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<IdentityUser>> PostUser(User user)
     {
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
+
         _context.User.Add(user);
         await _context.SaveChangesAsync();
 
@@ -94,6 +114,11 @@ public class UserController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteUser(int id)
     {
+        if (!ModelState.IsValid)
+        {
+            return NotFound();
+        }
+
         var user = await _context.Users.FindAsync(id);
         if (user == null)
         {
