@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using QuizApplication.Data;
 using QuizDbContext;
+using QuizModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
