@@ -26,13 +26,13 @@
                                                         {
                                                         <div class="options-item">
                                                             @if (@Model.ModuleHistory.Count() >= 1)
-                                                            {
-                                                                <input type="radio" name="question-@item.Id" value="@item.Option1" disabled>
-                                                            }
-                                                            else
-                                                            {
-                                                                <input type="radio" name="question-@item.Id" value="@item.Option1">
-                                                            }
+                                                                {
+                                                                <input type="radio" name="question-@item.Id" value="@item.Option1" required disabled>
+                                                                }
+                                                                else
+                                                                {
+                                                                <input type="radio" name="question-@item.Id" value="@item.Option1" required>
+                                                                }
                                                             <label for="html">@item.Option1</label>
                                                         </div>
                                                         }
@@ -40,13 +40,13 @@
                                                         {
                                                         <div class="options-item">
                                                             @if (@Model.ModuleHistory.Count() >= 1)
-                                                            {
-                                                                <input type="radio" name="question-@item.Id" value="@item.Option2" disabled>
-                                                            }
-                                                            else
-                                                            {
-                                                                <input type="radio" name="question-@item.Id" value="@item.Option2">
-                                                            }
+                                                                {
+                                                                <input type="radio" name="question-@item.Id" value="@item.Option2" required disabled>
+                                                                }
+                                                                else
+                                                                {
+                                                                <input type="radio" name="question-@item.Id" value="@item.Option2" required>
+                                                                }
                                                             
                                                             <label for="html">@item.Option2</label>
                                                         </div>
@@ -55,13 +55,13 @@
                                                         {
                                                         <div class="options-item">
                                                             @if (@Model.ModuleHistory.Count() >= 1)
-                                                            {
-                                                                <input type="radio" name="question-@item.Id" value="@item.Option3" disabled>
-                                                            }
-                                                            else
-                                                            {
-                                                                <input type="radio" name="question-@item.Id" value="@item.Option3">
-                                                            }
+                                                                {
+                                                                <input type="radio" name="question-@item.Id" value="@item.Option3" required disabled>
+                                                                }
+                                                                else
+                                                                {
+                                                                <input type="radio" name="question-@item.Id" value="@item.Option3" required>
+                                                                }
                                                             <label for="html">@item.Option3</label>
                                                         </div>
                                                         }
@@ -69,13 +69,13 @@
                                                         {
                                                         <div class="options-item">
                                                             @if (@Model.ModuleHistory.Count() >= 1)
-                                                            {
-                                                                <input type="radio" name="question-@item.Id" value="@item.Option4" disabled>
-                                                            }
-                                                            else
-                                                            {
-                                                                <input type="radio" name="question-@item.Id" value="@item.Option4">
-                                                            }
+                                                                {
+                                                                <input type="radio" name="question-@item.Id" value="@item.Option4" required disabled>
+                                                                }
+                                                                else
+                                                                {
+                                                                <input type="radio" name="question-@item.Id" value="@item.Option4" required>
+                                                                }
                                                             
                                                             <label for="html">@item.Option4</label>
                                                         </div>
@@ -95,13 +95,13 @@
                         }
                     <div class="form-group">
                         @if (@Model.ModuleHistory.Count() >= 1)
-                        {
+                            {
                             <input type="submit" value="Finish Quiz" class="btn btn-primary" disabled/>
-                        }
-                        else
-                        {
+                            }
+                            else
+                            {
                             <input type="submit" value="Finish Quiz" class="btn btn-primary" />
-                        }
+                            }
                     </div>
                     </form>
                 </div>
@@ -109,16 +109,20 @@
             <div class="col-md-4">
                 <div class="quiz-stats">
                     <div class="quiz-item">
-                        @*<span>Total Questions: @Model.Quizes.Count</span>*@
+                        <span>Total Questions: @Model.Quizes!.Count</span>
                     </div>
-                    <div class="quiz-item">
-                        <span>Marks: @Model.ModuleHistory[0].MarksObtained</span>
-                    </div>
+                    @{ 
+                        @if (@Model.ModuleHistory!.Count >= 1){
+                        <div class="quiz-item">
+                            <span>Marks: @Model.ModuleHistory[0].MarksObtained</span>
+                        </div>
+                            }
+                        }
                     <div class="quiz-item">
                         <span>Status: @Model.QuizStatus</span>
                     </div>
                     <div class="quiz-item">
-                        <span>Module: Module 1</span>
+                        <span>Module: @Model.moduleName</span>
                     </div>
                 </div>
             </div>

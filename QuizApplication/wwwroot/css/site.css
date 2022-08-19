@@ -76,16 +76,21 @@ body {
 
 form .form-group{
     padding-bottom: 1.8rem;
-    max-width: 400px;
 }
 form .custom-control {
     padding-bottom: 1.8rem;
 }
-
-form .form-group input,
-form .form-group select {
-    width: 100%;
-    min-height: 50px;
+form .form-group .options {
+    display: flex;
+    flex-wrap: wrap;
+}
+form .form-group .options .options-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form .form-group .options .options-item label {
+   padding-left: 1rem;
 }
 
 form .form-group textarea {

@@ -11,9 +11,9 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<QuizContext>(builder => {
     builder.UseSqlite("Name=ConnectionStrings:QuizDB-sqlite", b => b.MigrationsAssembly("QuizDbMigration"));
 });
-
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<QuizContext>();
+builder.Services.ConfigureApplicationCookie(options => options.LoginPath = "/Identity/Account/Login");
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
