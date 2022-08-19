@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QuizDbContext;
 
@@ -10,9 +11,10 @@ using QuizDbContext;
 namespace QuizDbMigration.Migrations
 {
     [DbContext(typeof(QuizContext))]
-    partial class QuizContextModelSnapshot : ModelSnapshot
+    [Migration("20220818232035_Migrationv14")]
+    partial class Migrationv14
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.8");
@@ -244,26 +246,6 @@ namespace QuizDbMigration.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Module");
-                });
-
-            modelBuilder.Entity("QuizModels.ModuleDetails", b =>
-                {
-                    b.Property<int?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("MarksObtained")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("ModuleId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ModuleDetails");
                 });
 
             modelBuilder.Entity("QuizModels.Quiz", b =>

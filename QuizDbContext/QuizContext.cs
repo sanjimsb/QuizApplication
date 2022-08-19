@@ -14,6 +14,7 @@ public class QuizContext : IdentityDbContext
     public DbSet<User>? User { get; set; }
     public DbSet<UserAnswer>? UserAnswer { get; set; }
     public DbSet<UserStatus>? UserStatus { get; set; }
+    public DbSet<ModuleDetails>? ModuleDetails { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

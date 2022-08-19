@@ -14,6 +14,6 @@ public class ModuleDetails
     [ForeignKey("User")]
     public string? UserId { get; set; }
 
-    public string? MarksObtained { get; set; }
+    public int? MarksObtained { get; set; }
 
 }
